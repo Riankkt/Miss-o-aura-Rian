@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 14px;
+  background: #101827;
+  color: #eef4ff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagina {
+  max-width: 780px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.cabecalho {
+  text-align: center;
+  padding: 12px 10px 22px;
+}
+
+.identificacao {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 8px 0;
+  font-size: 38px;
+}
+
+.cabecalho p:last-child {
+  max-width: 560px;
+  margin: 10px auto 0;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.painel {
+  padding: 25px;
+  background: #1b293d;
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 21px;
+}
+
+label {
+  display: block;
+  margin-top: 8px;
+}
+
+input[type="text"],
+input[type="date"] {
+  display: block;
+  width: 100%;
+  padding: 11px;
+  margin-top: 6px;
+  border: 1px solid #9aaec7;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.titulo-perguntas {
+  margin-top: 28px;
+}
+
+fieldset {
+  border: 1px solid #405775;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin: 16px 0;
+}
+
+legend {
+  padding: 0 5px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+fieldset label {
+  padding: 9px;
+  margin: 5px 0;
+  background: #263a54;
+  border-radius: 5px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  margin-right: 7px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #78e2d0;
+  color: #102033;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #a1f0e3;
+}
+
+#mensagem {
+  min-height: 20px;
+  text-align: center;
+  color: #ffc2b9;
+  line-height: 1.4;
+}
+
+.resultado {
+  text-align: center;
+}
+
+.resultado img {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  margin: 18px auto;
+  border-radius: 8px;
+}
+
+.resultado h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.categoria {
+  color: #78e2d0;
+  font-weight: bold;
+}
+
+#descricao,
+#recomendacao {
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  color: #a9b8cc;
+  font-size: 12px;
+  padding: 4px 0 12px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 499px) {
+  body {
+    padding: 12px 8px;
+  }
+
+  .cabecalho {
+    padding-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .painel {
+    padding: 16px 12px;
+  }
+
+  fieldset {
+    padding: 10px;
+  }
+
+  fieldset label {
+    font-size: 14px;
+  }
+}

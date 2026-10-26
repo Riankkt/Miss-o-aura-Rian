@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Missão Aura - Descubra seu perfil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="pagina">
+    <header class="cabecalho">
+      <p class="identificacao">EXPEDIÇÃO / ANO 2089</p>
+      <h1>Missão Aura</h1>
+      <p>Descubra qual função combina com você em uma expedição por um planeta desconhecido.</p>
+    </header>
+
+    <section class="painel">
+      <form id="formulario">
+        <h2>Dados do participante</h2>
+
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Digite seu nome">
+
+        <label for="nascimento">Data de nascimento</label>
+        <input type="date" id="nascimento">
+
+        <h2 class="titulo-perguntas">Escolha suas respostas</h2>
+
+        <fieldset>
+          <legend>1. Qual atividade mais chama sua atenção?</legend>
+          <label><input type="radio" name="pergunta1" value="1"> Montar equipamentos e resolver falhas</label>
+          <label><input type="radio" name="pergunta1" value="2"> Pesquisar e entender novas descobertas</label>
+          <label><input type="radio" name="pergunta1" value="3"> Explorar lugares desconhecidos</label>
+          <label><input type="radio" name="pergunta1" value="4"> Organizar pessoas e tarefas</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. O que você levaria para a expedição?</legend>
+          <label><input type="radio" name="pergunta2" value="1"> Uma caixa de ferramentas</label>
+          <label><input type="radio" name="pergunta2" value="2"> Um kit de análise científica</label>
+          <label><input type="radio" name="pergunta2" value="3"> Uma mochila para longas caminhadas</label>
+          <label><input type="radio" name="pergunta2" value="4"> Um mapa com um plano de ação</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Quando surge um problema, você costuma...</legend>
+          <label><input type="radio" name="pergunta3" value="1"> Testar uma solução prática</label>
+          <label><input type="radio" name="pergunta3" value="2"> Analisar as informações primeiro</label>
+          <label><input type="radio" name="pergunta3" value="3"> Experimentar outro caminho</label>
+          <label><input type="radio" name="pergunta3" value="4"> Dividir o problema em etapas</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>4. Qual seria sua função na equipe?</legend>
+          <label><input type="radio" name="pergunta4" value="1"> Manter os equipamentos funcionando</label>
+          <label><input type="radio" name="pergunta4" value="2"> Estudar os sinais de vida do planeta</label>
+          <label><input type="radio" name="pergunta4" value="3"> Procurar locais seguros para explorar</label>
+          <label><input type="radio" name="pergunta4" value="4"> Coordenar a equipe e os horários</label>
+        </fieldset>
+
+        <button type="submit">Descobrir meu perfil</button>
+        <p id="mensagem" role="status"></p>
+      </form>
+    </section>
+
+    <section id="resultado" class="painel resultado" hidden>
+      <p class="identificacao">RELATÓRIO DA EXPEDIÇÃO</p>
+      <h2>Seu perfil foi identificado!</h2>
+      <p id="dados-participante"></p>
+      <img id="imagem-perfil" src="" alt="">
+      <h3 id="nome-perfil"></h3>
+      <p id="categoria-perfil" class="categoria"></p>
+      <p id="descricao-perfil"></p>
+      <p id="recomendacao-perfil"></p>
+      <button type="button" id="refazer">Refazer</button>
+    </section>
+
+    <footer>
+      <p>Missão Aura / Base de exploração 2089</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
