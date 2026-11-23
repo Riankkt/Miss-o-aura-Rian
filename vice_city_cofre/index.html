@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100d1d">
+  <title>VICE CITY — Operação Cofre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="city-backdrop" aria-hidden="true">
+    <div class="sun"></div><div class="skyline skyline-back"></div><div class="skyline skyline-front"></div>
+    <div class="palm palm-one">♣</div><div class="palm palm-two">♣</div>
+    <div class="road"></div>
+  </div>
+
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">V</div>
+        <div><strong>VICE CITY</strong><small>CRIME • MONEY • LOYALTY</small></div>
+      </div>
+      <div class="wanted"><span class="wanted-stars">★ ★ ★</span><small>PROCURADO</small></div>
+      <div class="top-status"><span class="status-dot"></span> OPERAÇÃO ATIVA <b>09:41 PM</b></div>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">◆ MISSÃO PRINCIPAL / COFRE 01 ◆</p>
+      <h1>THE <span>BIG SCORE</span></h1>
+      <p class="subtitle">A cidade está acordada. O cofre não vai abrir sozinho.</p>
+      <div class="mission-tags"><span>VICE CITY, FL</span><span>•</span><span>ALVO: BANCO CENTRAL</span><span>•</span><span>RISCO ALTO</span></div>
+    </section>
+
+    <section class="game-layout">
+      <div class="vault-stage">
+        <div class="stage-topline"><span>01 — SISTEMA DE SEGURANÇA</span><span class="live-label"><i></i> LIVE FEED</span></div>
+        <div class="vault">
+          <div class="vault-rim">
+            <div class="vault-door">
+              <div class="door-label"><span>VC</span><b>SECURITY SYSTEM</b><span>EST. 1986</span></div>
+              <div class="dial-housing">
+                <div class="dial">
+                  <div class="dial-number" id="dialNumber">000</div>
+                  <div class="dial-center"><span></span></div>
+                  <div class="dial-pointer"></div>
+                </div>
+              </div>
+              <div class="handle"><div class="handle-bar"></div><div class="handle-hub"></div></div>
+              <div class="bolts bolt-1"></div><div class="bolts bolt-2"></div>
+              <div class="bolts bolt-3"></div><div class="bolts bolt-4"></div>
+              <div class="keypad-panel">
+                <div class="keypad-screen"><span class="screen-light"></span><span id="screenText">AWAITING ACCESS CODE</span></div>
+                <div class="keypad" id="keypad">
+                  <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+                  <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+                  <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+                  <button data-action="clear" class="utility">CLR</button><button data-key="0">0</button><button data-action="enter" class="enter">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stage-caption"><span>● ENCRYPTION: 256-BIT</span><span>CAM 04 / BANK VAULT</span></div>
+      </div>
+
+      <aside class="mission-panel">
+        <div class="panel-heading"><span class="panel-icon">⌖</span><div><small>OBJETIVO ATUAL</small><h2>INVADIR O COFRE</h2></div></div>
+        <p class="mission-copy">Descubra a combinação de três dígitos. Cada tentativa revela uma pista sobre a senha.</p>
+        <div class="objective-line"><span>RECOMPENSA</span><strong>$ 2.500.000</strong></div>
+        <div class="objective-line"><span>NÍVEL DE ALERTA</span><strong class="pink">ELEVADO</strong></div>
+        <div class="divider"></div>
+        <div class="access-heading"><span>⌁</span><div><b>TERMINAL DE ACESSO</b><small>INSIRA A COMBINAÇÃO</small></div></div>
+        <div class="code-slots" aria-label="Código digitado">
+          <span class="slot" id="slot0">_</span><span class="slot" id="slot1">_</span><span class="slot" id="slot2">_</span>
+        </div>
+        <div class="actions"><button id="clearBtn" class="btn secondary">LIMPAR</button><button id="submitBtn" class="btn primary">DESBLOQUEAR <span>↗</span></button></div>
+        <p class="message" id="message" aria-live="polite">Aguardando combinação...</p>
+        <div class="divider"></div>
+        <div class="intel-heading"><span>◉</span><div><b>INTELIGÊNCIA</b><small>INFORMAÇÕES DA MISSÃO</small></div></div>
+        <p class="hint" id="hint">A combinação possui três números diferentes. Faça uma tentativa para receber a primeira pista.</p>
+        <div class="stats">
+          <div><small>TENTATIVAS</small><strong id="attempts">0</strong></div>
+          <div><small>STATUS</small><strong id="lockStatus">BLOQUEADO</strong></div>
+        </div>
+        <button id="newGameBtn" class="reset-link">↻ ABORTAR E REINICIAR MISSÃO</button>
+      </aside>
+    </section>
+    <footer><span>VICE CITY STORIES // PRIVATE SECURITY NETWORK</span><span>© 2026 — ALL RIGHTS RESERVED</span></footer>
+  </main>
+
+  <div class="overlay hidden" id="winOverlay" role="dialog" aria-modal="true" aria-labelledby="winTitle">
+    <div class="win-card">
+      <div class="win-kicker">◆ MISSÃO CONCLUÍDA ◆</div>
+      <img class="win-safe-image" src="cofre-aberto.png" alt="Cofre aberto com moedas de ouro">
+      <div class="win-symbol">✓</div>
+      <p class="eyebrow">ACCESS GRANTED</p>
+      <h2 id="winTitle">YOU MADE IT.</h2>
+      <p>Combinação correta: <strong id="winningCode"></strong></p>
+      <p class="win-note">O cofre foi aberto. A cidade agora é sua.</p>
+      <button class="btn primary" id="playAgainBtn">JOGAR NOVAMENTE ↗</button>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

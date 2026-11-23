@@ -1,0 +1,74 @@
+*{box-sizing:border-box}
+:root{--pink:#ff4f9a;--cyan:#43e8ed;--gold:#ffc857;--ink:#100d1d;--panel:#171426;--muted:#aaa5bb}
+body{margin:0;min-height:100vh;padding:24px;color:#fff;background:#100d1d;font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+.city-backdrop{position:fixed;inset:0;z-index:-2;overflow:hidden;background:linear-gradient(180deg,#15112b 0%,#382044 40%,#b64c71 72%,#f29a72 100%)}
+.city-backdrop:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0d0b1bcc,transparent 35%,transparent 65%,#0d0b1bcc),linear-gradient(0deg,#100d1d 0%,transparent 55%);z-index:2}
+.sun{position:absolute;width:330px;height:330px;border-radius:50%;left:50%;top:5%;transform:translateX(-50%);background:linear-gradient(180deg,#ffe18b,#ff8b9d);box-shadow:0 0 90px #ff8b9d88}
+.skyline{position:absolute;bottom:17%;left:0;width:100%;height:40%;opacity:.65;background:linear-gradient(90deg,transparent 0 3%,#17142b 3% 8%,transparent 8% 10%,#21162d 10% 17%,transparent 17% 19%,#17142b 19% 27%,transparent 27% 30%,#24172e 30% 38%,transparent 38% 41%,#17142b 41% 49%,transparent 49% 52%,#21162d 52% 61%,transparent 61% 64%,#17142b 64% 72%,transparent 72% 75%,#21162d 75% 84%,transparent 84% 87%,#17142b 87% 95%,transparent 95%)}
+.skyline-back{height:32%;opacity:.35;filter:blur(2px);transform:scaleX(1.1)}
+.skyline-front:before,.skyline-front:after{content:"";position:absolute;bottom:0;width:13%;height:100%;background:repeating-linear-gradient(90deg,transparent 0 13px,#ffce7c55 14px 17px),repeating-linear-gradient(0deg,#17142b 0 24px,#ffce7c44 25px 27px)}
+.skyline-front:before{left:20%;height:78%}.skyline-front:after{right:19%;height:95%}
+.road{position:absolute;bottom:0;width:100%;height:19%;background:linear-gradient(180deg,#292039,#090912);border-top:3px solid #ff6da5}
+.road:after{content:"";position:absolute;top:50%;left:0;width:100%;border-top:3px dashed #f9d48a88}
+.palm{position:absolute;z-index:1;color:#11101c;font-size:150px;opacity:.8;top:23%;transform:rotate(-25deg)}
+.palm-one{left:-28px}.palm-two{right:-35px;top:28%;transform:rotate(25deg)}
+.game-shell{max-width:1120px;margin:auto;position:relative}
+.topbar{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff35;padding:4px 2px 17px}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:42px;height:42px;display:grid;place-items:center;border:2px solid var(--cyan);color:var(--cyan);font:900 28px 'Barlow Condensed';transform:skew(-7deg);text-shadow:0 0 15px #43e8ed88}
+.brand strong{display:block;font:800 17px 'Barlow Condensed';letter-spacing:3px}.brand small,.top-status,.wanted small{font:9px 'DM Mono';letter-spacing:1.3px;color:#d0c9df}
+.wanted{text-align:center}.wanted-stars{display:block;color:var(--pink);font-size:17px;letter-spacing:3px;text-shadow:0 0 12px #ff4f9a}
+.top-status{display:flex;align-items:center;gap:8px}.top-status b{color:var(--cyan);font-weight:500;margin-left:8px}
+.status-dot,.live-label i{width:7px;height:7px;border-radius:50%;background:var(--cyan);display:inline-block;box-shadow:0 0 10px var(--cyan)}
+.intro{text-align:center;padding:25px 0 20px}.eyebrow{font:10px 'DM Mono';letter-spacing:3px;color:var(--cyan);margin:0 0 8px}
+.intro h1{font:900 clamp(45px,7vw,76px)/.9 'Barlow Condensed';letter-spacing:2px;margin:0;text-shadow:3px 4px 0 #171225,0 0 24px #ff4f9a55}
+.intro h1 span{color:var(--pink);text-shadow:3px 4px 0 #39162e,0 0 22px #ff4f9a99}
+.subtitle{font-size:13px;color:#f1dce8;margin:12px 0}.mission-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;font:9px 'DM Mono';letter-spacing:1.3px;color:#ffe1aa}
+.game-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(310px,.85fr);gap:18px;align-items:stretch}
+.vault-stage,.mission-panel{background:#100e1ddd;border:1px solid #ffffff32;box-shadow:0 18px 55px #07061088;backdrop-filter:blur(10px)}
+.vault-stage{padding:16px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;min-height:510px;background-image:linear-gradient(180deg,#100d1d22,#100d1d11 55%,#100d1d88),url('vice-city-closed.png');background-size:cover;background-position:center;border-color:#ff77b5aa;transition:background-image .35s ease,filter .35s ease}
+.stage-topline,.stage-caption{display:flex;justify-content:space-between;gap:10px;font:9px 'DM Mono';letter-spacing:1.2px;color:#fff;background:#100d1dbb;padding:8px 10px;border:1px solid #ffffff33;border-radius:3px;position:relative;z-index:1}
+.live-label{color:var(--cyan)}.live-label i{width:6px;height:6px;margin-right:6px}
+.vault-area{display:flex;justify-content:center;padding:22px 0}.vault{width:min(100%,480px);aspect-ratio:1.15;filter:drop-shadow(0 18px 20px #0009);visibility:hidden}
+.vault-rim{height:100%;padding:14px;border-radius:24px;background:linear-gradient(135deg,#c7c6d0,#343442 25%,#777887 50%,#242331 80%);box-shadow:inset 0 2px 5px #fff9,0 12px 22px #0009}
+.vault-door{height:100%;position:relative;border-radius:16px;background:linear-gradient(145deg,#363443,#161521 60%,#292735);border:2px solid #85828d;box-shadow:inset 0 0 0 5px #22212c, inset 0 0 30px #000;overflow:hidden}
+.vault-door:before{content:"";position:absolute;inset:12px;border:1px solid #ffffff30;border-radius:10px;pointer-events:none}
+.door-label{position:absolute;top:15px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:12px;color:#d6d2df;font:8px 'DM Mono';letter-spacing:1.5px}.door-label b{color:var(--cyan);font-size:9px}
+.dial-housing{position:absolute;width:150px;height:150px;left:39%;top:48%;transform:translate(-50%,-50%);border-radius:50%;background:linear-gradient(135deg,#d2d0d7,#575662 45%,#22212b);padding:9px;box-shadow:0 6px 14px #000b}
+.dial{width:100%;height:100%;border-radius:50%;position:relative;display:grid;place-items:center;background:repeating-conic-gradient(from 0deg,#d8d5dc 0deg 1deg,transparent 1deg 12deg),#272632;border:4px solid #aaa7b2;box-shadow:inset 0 0 0 5px #44414d}
+.dial-number{z-index:2;font:500 23px 'DM Mono';color:var(--cyan);letter-spacing:3px;background:#11111a;padding:7px 9px;border:1px solid #777482;border-radius:4px;text-shadow:0 0 10px #43e8ed88}
+.dial-center{position:absolute;width:22px;height:22px;border-radius:50%;background:#aaa7b2;bottom:13px;display:grid;place-items:center}.dial-center span{width:8px;height:8px;background:#33313b;border-radius:50%}
+.dial-pointer{position:absolute;top:5px;left:50%;transform:translateX(-50%);border-left:5px solid transparent;border-right:5px solid transparent;border-top:10px solid var(--pink)}
+.handle{position:absolute;right:18px;top:43%;width:55px;height:55px;border:5px solid #aaa8b3;border-radius:50%;background:#45434f;box-shadow:0 4px 8px #0008}
+.handle-bar{position:absolute;width:52px;height:10px;left:-3px;top:18px;border-radius:8px;background:#d0ced6;transform:rotate(-35deg);box-shadow:0 2px 3px #0008}.handle-hub{position:absolute;inset:14px;border-radius:50%;background:#888590;border:2px solid #33313b}
+.bolts{position:absolute;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#777);box-shadow:0 1px 3px #0008}
+.bolt-1{top:17px;left:18px}.bolt-2{top:17px;right:18px}.bolt-3{bottom:17px;left:18px}.bolt-4{bottom:17px;right:18px}
+.keypad-panel{position:absolute;left:39%;bottom:12px;transform:translateX(-50%);width:174px;padding:6px;background:#101019;border:1px solid #888592;border-radius:7px;box-shadow:0 3px 8px #0009}
+.keypad-screen{height:17px;margin-bottom:5px;background:#080d12;color:var(--cyan);font:7px 'DM Mono';letter-spacing:.8px;display:flex;align-items:center;justify-content:center;gap:7px;border:1px solid #3e5c61;white-space:nowrap;overflow:hidden}
+.screen-light{width:5px;height:5px;flex:none;border-radius:50%;background:var(--pink);box-shadow:0 0 7px var(--pink)}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.keypad button{border:1px solid #666471;border-radius:3px;background:linear-gradient(#555361,#302e3a);color:#fff;font:500 11px 'DM Mono';padding:4px;cursor:pointer;box-shadow:0 2px 0 #08080e}
+.keypad button:active{transform:translateY(2px);box-shadow:none}.keypad .utility{font-size:8px;color:#ff9dbf}.keypad .enter{color:var(--cyan)}
+.mission-panel{padding:19px 20px}.panel-heading,.access-heading,.intel-heading{display:flex;align-items:center;gap:11px}.panel-icon{font-size:25px;color:var(--pink)}.panel-heading small,.access-heading small,.intel-heading small{display:block;color:#a7a1b7;font:8px 'DM Mono';letter-spacing:1.2px}.panel-heading h2{font:700 23px 'Barlow Condensed';letter-spacing:1px;margin:1px 0}
+.mission-copy,.hint{font-size:11px;line-height:1.65;color:#c4bfd0;margin:14px 0}.objective-line{display:flex;justify-content:space-between;padding:7px 0;font:9px 'DM Mono';letter-spacing:.8px;color:#a7a1b7}.objective-line strong{color:var(--gold)}.objective-line .pink{color:var(--pink)}
+.divider{height:1px;background:#ffffff22;margin:12px 0}.access-heading>span,.intel-heading>span{font-size:22px;color:var(--cyan)}.access-heading b,.intel-heading b{font:700 11px 'Barlow Condensed';letter-spacing:1.5px}
+.code-slots{display:flex;justify-content:center;gap:10px;margin:14px 0}.slot{width:48px;height:44px;display:grid;place-items:center;border:1px solid #5b566e;background:#0b0a13;color:var(--cyan);font:23px 'DM Mono';box-shadow:inset 0 0 14px #0008}
+.actions{display:flex;gap:8px}.btn{border:0;border-radius:3px;padding:11px 13px;font:700 10px Inter;letter-spacing:.6px;cursor:pointer;transition:.15s}.btn:active{transform:translateY(1px)}.primary{background:var(--pink);color:#190d1c;flex:1;box-shadow:0 0 16px #ff4f9a33}.primary:hover{background:#ff80b4}.secondary{background:#302d3d;color:#eee;border:1px solid #666174}
+.message{font-size:10px;color:#bdb7c9;text-align:center;min-height:14px;margin:10px 0 0}.message.error{color:#ff7ba9}.message.good{color:var(--cyan)}
+.hint{min-height:45px;margin:10px 0}.stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #ffffff22;border-bottom:1px solid #ffffff22;padding:10px 0}.stats small{display:block;font:8px 'DM Mono';color:#a7a1b7;letter-spacing:1px}.stats strong{display:block;color:var(--cyan);font:700 14px 'DM Mono';margin-top:4px}.reset-link{border:0;background:none;color:#ff8db7;font:9px 'DM Mono';letter-spacing:.5px;padding:12px 0 0;cursor:pointer}
+footer{display:flex;justify-content:space-between;gap:10px;margin:18px 2px 0;color:#c1b8cc;font:8px 'DM Mono';letter-spacing:1px}
+.overlay{position:fixed;inset:0;z-index:99999;display:flex;justify-content:center;align-items:center;padding:20px;background:#080610df;backdrop-filter:blur(8px)}.overlay.hidden,.hidden{display:none!important}
+.win-card{width:min(100%,390px);text-align:center;background:linear-gradient(145deg,#21172e,#100e1d);border:1px solid #ff7caf88;padding:27px;border-radius:8px;box-shadow:0 20px 80px #000b,0 0 35px #ff4f9a22}
+.win-kicker{font:9px 'DM Mono';letter-spacing:2px;color:var(--cyan)}.win-safe-image{display:block;width:min(100%,250px);height:150px;object-fit:contain;margin:8px auto}
+.win-symbol{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;background:var(--cyan);color:#111;font-size:26px}.win-card .eyebrow{margin:0}.win-card h2{font:900 42px 'Barlow Condensed';margin:2px 0 8px;color:var(--pink)}.win-card p{color:#d4cede;font-size:12px}.win-card p strong{color:var(--cyan);font:18px 'DM Mono'}.win-note{margin:15px 0 20px}.win-card .btn{width:100%}
+@media(max-width:760px){body{padding:14px}.top-status{font-size:0}.top-status b{font-size:8px}.game-layout{grid-template-columns:1fr}.vault-stage{min-height:390px;background-position:center}.mission-panel{padding:17px}.intro{padding-top:22px}.wanted{display:none}}
+@media(max-width:430px){.vault{width:100%}.vault-rim{padding:10px}.dial-housing{width:125px;height:125px;left:38%}.dial-number{font-size:18px}.handle{right:12px;width:43px;height:43px}.handle-bar{width:40px;top:13px}.handle-hub{inset:10px}.keypad-panel{left:38%;width:150px}.door-label{font-size:7px;gap:7px}.door-label b{font-size:7px}.vault-stage{padding:11px;min-height:340px}footer{font-size:6px}.intro h1{font-size:52px}}
+
+
+/* Estado de sucesso: troca para o cenário com o cofre aberto */
+.vault-stage.vault-open{
+  background-image:linear-gradient(180deg,#100d1d11,#100d1d00 55%,#100d1d66),url('vice-city-open.png');
+  border-color:#43e8ed;
+  box-shadow:0 0 28px #43e8ed33,0 18px 55px #07061088;
+}
+.vault-stage.vault-open .live-label{color:#43e8ed}
+.vault-stage.vault-open .live-label i{background:#43e8ed;box-shadow:0 0 10px #43e8ed}
